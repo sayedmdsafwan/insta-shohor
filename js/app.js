@@ -18,6 +18,7 @@ const isLiked = (id) => {
 const addToLiked = (id) => {
     likedPostsId.push(id);
     showPosts(posts);
+    likedPostsId.innerHTML = "";
 };
 
 const reportPost = (id) => {
@@ -56,7 +57,7 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
     const image = post.image;
-    const imageUser = post.userImage
+    const imageUser = post.userImage;
     const div = document.createElement("article");
     div.classList.add("post");
     div.innerHTML = `
@@ -153,6 +154,7 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
     const likedPosts = getLikedPosts();
+    document.getElementById("liked").innerHTML = "";
     likedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById("liked").appendChild(div);
